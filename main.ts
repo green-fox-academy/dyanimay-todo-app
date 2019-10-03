@@ -4,11 +4,16 @@ const fs = require ('fs');
 const args: string[] = process.argv;
 const usageInfo: string = fs.readFileSync('usageInfo.txt', 'utf-8');
 
+const toDo: string = fs.readFileSync('todo_list.txt', 'utf-8');
+const toDoLines: string[] = toDo.split('\n'); //split the text message by new lines
+
 let mainProcess = () => {
   if (args.length == 2) {
     console.log(usageInfo);
   } else if (args[2] == '-l') {
-    console.log('I am listing all the todos.');
+    for (let i: number = 0; i < toDoLines.length; i++){
+      console.log((i+1) + ' - ' + toDoLines[i]);
+    }
   } else {
     console.log('this is the error handling');
   }
