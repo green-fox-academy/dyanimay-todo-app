@@ -39,6 +39,8 @@ let mainProcess = () => {
       toDoLines.splice(parseInt(process.argv[3]) - 1, 1);
       fs.writeFileSync('todo_list.txt', toDoLines.join('\n'), 'utf-8'); //it works now
     }
+  } else if (args[3] != '-l' || args[3] != '-r' || args[3] != '-c' || args[3] != '-a') {
+    console.log(usageInfo);
   }
 } 
 
