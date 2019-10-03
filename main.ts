@@ -24,7 +24,7 @@ let mainProcess = () => {
     } else {
       fs.appendFileSync('todo_list.txt', '\n' + args[3] ,'utf-8');
       toDo = fs.readFileSync('todo_list.txt', 'utf-8');
-      console.log(toDo);
+      // console.log(toDo);
     }
   } else if (args[2] == '-r') {
     if (process.argv[3] == undefined){ //no index option
@@ -37,7 +37,7 @@ let mainProcess = () => {
       toDoLines.splice(parseInt(process.argv[3]) - 1, 1);
       fs.writeFileSync('todo_list.txt', toDoLines.join('\n'), 'utf-8'); 
     }
-  } else if (args[3] != '-l' || args[3] != '-r' || args[3] != '-c' || args[3] != '-a') {
+  } else if (args[2] !== '-l' && args[2] !== '-r' && args[2] !== '-c' && args[2] !== '-a') {
     console.log(usageInfo);
   }
 } 
