@@ -11,11 +11,13 @@ let mainProcess = () => {
   if (args.length == 2) {
     console.log(usageInfo);
   } else if (args[2] == '-l') {
+    if (toDo == '') {
+      console.log('No todos for today! :)');
+    } else {
     for (let i: number = 0; i < toDoLines.length; i++){
       console.log((i+1) + ' - ' + toDoLines[i]);
+      }
     }
-  } else {
-    console.log('this is the error handling');
   }
 }
 
