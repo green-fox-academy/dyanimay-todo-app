@@ -37,7 +37,7 @@ let mainProcess = () => {
       console.log('Unable to remove: index is not a number')
     } else { 
       toDoLines.splice(parseInt(process.argv[3]) - 1, 1);
-      console.log('numbert irtam');
+      fs.writeFileSync('todo_list.txt', toDoLines.join('\n'), 'utf-8'); //it works now
     }
   }
 } 
