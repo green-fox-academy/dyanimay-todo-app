@@ -1,7 +1,5 @@
 'use strict';
 
-import { parse } from "path";
-
 const fs = require ('fs');
 const args: string[] = process.argv;
 const usageInfo: string = fs.readFileSync('usageInfo.txt', 'utf-8');
@@ -29,15 +27,15 @@ let mainProcess = () => {
       console.log(toDo);
     }
   } else if (args[2] == '-r') {
-    if (process.argv[3] == undefined){ //no index option - it works
+    if (process.argv[3] == undefined){ //no index option
       console.log('Unable to remove: no index provided');
-    } else if (parseInt(process.argv[3]) > toDoLines.length){ // too high number option - it works
+    } else if (parseInt(process.argv[3]) > toDoLines.length){ // too high number option
       console.log('Unable to remove: index is out of bound');
-    } else if (isNaN(parseInt(process.argv[3]))) {  //not a number option - it works
+    } else if (isNaN(parseInt(process.argv[3]))) {  //not a number option
       console.log('Unable to remove: index is not a number')
     } else { 
       toDoLines.splice(parseInt(process.argv[3]) - 1, 1);
-      fs.writeFileSync('todo_list.txt', toDoLines.join('\n'), 'utf-8'); //it works now
+      fs.writeFileSync('todo_list.txt', toDoLines.join('\n'), 'utf-8'); 
     }
   } else if (args[3] != '-l' || args[3] != '-r' || args[3] != '-c' || args[3] != '-a') {
     console.log(usageInfo);
