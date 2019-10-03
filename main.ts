@@ -4,7 +4,7 @@ const fs = require ('fs');
 const args: string[] = process.argv;
 const usageInfo: string = fs.readFileSync('usageInfo.txt', 'utf-8');
 
-const toDo: string = fs.readFileSync('todo_list.txt', 'utf-8');
+let toDo: string = fs.readFileSync('todo_list.txt', 'utf-8');
 const toDoLines: string[] = toDo.split('\n'); //split the text message by new lines
 
 let mainProcess = () => {
@@ -22,7 +22,8 @@ let mainProcess = () => {
     if (process.argv[3] == undefined){
       console.log('Unable to add. No task was provided!');
     } else {
-      fs.appendFileSync('todo_list.txt', '\n' + process.argv[3] ,'utf-8');
+      fs.appendFileSync('todo_list.txt', '\n' + args[3] ,'utf-8');
+      toDo = fs.readFileSync('todo_list.txt', 'utf-8');
       console.log(toDo);
     }
   }
