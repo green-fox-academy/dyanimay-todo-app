@@ -18,7 +18,14 @@ let mainProcess = () => {
       console.log((i+1) + ' - ' + toDoLines[i]);
       }
     }
+  } else if (args[2] == '-a') {
+    if (process.argv[3] == ''){
+      console.log('Unable to add. No task was provided!');
+    } else {
+      fs.appendFileSync('todo_list.txt', '\n' + process.argv[3] ,'utf-8');
+      console.log(toDo);
+    }
   }
-}
+} 
 
 mainProcess();
