@@ -19,7 +19,7 @@ let mainProcess = () => {
       }
     }
   } else if (args[2] == '-a') {
-    if (process.argv[3] == ''){
+    if (process.argv[3] == undefined){
       console.log('Unable to add. No task was provided!');
     } else {
       fs.appendFileSync('todo_list.txt', '\n' + process.argv[3] ,'utf-8');
