@@ -29,14 +29,15 @@ let mainProcess = () => {
       console.log(toDo);
     }
   } else if (args[2] == '-r') {
-    if (args[3] == undefined){ //no index option
+    if (process.argv[3] == undefined){ //no index option - it works
       console.log('Unable to remove: no index provided');
-    } else if (10-5 == 0){ // too high number option
-
-    } else if (parseInt(args[3]) == NaN) {  //not a number option
+    } else if (parseInt(process.argv[3]) > toDoLines.length){ // too high number option - it works
+      console.log('Unable to remove: index is out of bound');
+    } else if (isNaN(parseInt(process.argv[3]))) {  //not a number option - it works
       console.log('Unable to remove: index is not a number')
     } else { 
-      toDoLines.splice(parseInt(args[3]) - 1, 1);
+      toDoLines.splice(parseInt(process.argv[3]) - 1, 1);
+      console.log('numbert irtam');
     }
   }
 } 
